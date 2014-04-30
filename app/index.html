@@ -11,12 +11,10 @@
         <!-- endbuild -->
         <script type="template/html" id="noteInfo">
             <%_.each(noteArray, function(element, index, list){ %>
-                <div class="notebox">
-                </small><a class="glyphicon glyphicon-remove removeNote"></a>
+                <div class="notebox" data-index="<%=index%>"
+                </small><a class="glyphicon glyphicon-remove removeNote" data-index="<%= index %>"></a>
                 <h4 class = "noteClass"> <%=element.note %> </h4>
-
                 </div>
-
             <% }); %>
         </script>
     </head>
@@ -24,7 +22,7 @@
         
 
     <div class="container">
-        <h1>Notepad</h1>
+        <h1>To-do List</h1>
         <div class="notes">
             
 
@@ -34,12 +32,12 @@
             <form id="newPostform">
             <!-- <label for="newPostForm">new note here</label> -->
             <input type="text" class="form-control newPostTitle" placeholder="New Note Here">
-            <button type="submit" class="btn btn-primary">add note</button>
+            <button type="submit reset" class="btn btn-primary">add note</button>
             </form>
         </div>  
 
         <div class= "notifications">
-            <p>You have <a class="counter"> </a> remaining on your list.</p>
+            <p>You have <a class="counter"> </a> items remaining on your list.</p>
             
         </div>         
 
