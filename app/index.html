@@ -1,0 +1,79 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>notePad</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="/favicon.ico">
+
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+        <script type="template/html" id="noteInfo">
+            <%_.each(noteArray, function(element, index, list){ %>
+                <div class="notebox">
+                </small><a class="glyphicon glyphicon-remove removeNote"></a>
+                <h4 class = "noteClass"> <%=element.note %> </h4>
+
+                </div>
+
+            <% }); %>
+        </script>
+    </head>
+    <body>
+        
+
+    <div class="container">
+        <h1>Notepad</h1>
+        <div class="notes">
+            
+
+        </div>
+
+        <div class="form-group formstyle">
+            <form id="newPostform">
+            <!-- <label for="newPostForm">new note here</label> -->
+            <input type="text" class="form-control newPostTitle" placeholder="New Note Here">
+            <button type="submit" class="btn btn-primary">add note</button>
+            </form>
+        </div>  
+
+        <div class= "notifications">
+            <p>You have <a class="counter"> </a> remaining on your list.</p>
+            
+        </div>         
+
+
+
+
+
+
+    </div>
+
+        <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <script src="../bower_components/underscore/underscore.js"></script>
+
+       
+        <!-- build:js scripts/plugins.js -->
+        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/carousel.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js"></script>
+        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tab.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="scripts/data.js"></script>
+        <script src="scripts/main.js"></script>
+        <script src="scripts/form.js"></script>
+        
+        <!-- endbuild -->
+</body>
+</html>
