@@ -3,5 +3,7 @@ var noteArray = [
 	{"note": "work"},
 	{"note": "get drunk"},
 	{"note": "repeat"}
-]
+];
 noteArray.length
+
+var completedTasks = [];

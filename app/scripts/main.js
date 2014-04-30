@@ -4,7 +4,7 @@ $(document).ready(function(){
 	homePage.init();
 
 	homePage.NewPost();
-	homePage.DeletePost();
+	
 
 
 });
@@ -39,14 +39,18 @@ Page.prototype = {
 	removeTodoData : function(arr, item) {
       var newArray = [];
       for (var i = 0, len = arr.length; i < len; i++) {
-        if (arr[i] !== item) {
-          newArray.push(arr[i]);
+        if (arr[i] === item) {
+          arr.splice(i, 1);
         }
       }
-      return newArray;
-    }
-	//remove function
-	//template to create new html string based on 
+    },
+    DeletePost: function(){
+		var thisIndex = $(this).closest("div").data("index");
+		home.removeTodoData(noteArray, noteArray[thisIndex]);
+		home.replaceTmpl($(".notes"), $("#noteInfo").html(), noteArray);
+		home.replaceCounter($(".counter"), noteArray.length);	
+	}
+
 
 };
 
@@ -55,22 +59,13 @@ var homePage = {
 		home.addTmpl($(".notes"), $("#noteInfo").html(), noteArray);
 		home.addCounter($(".counter"), noteArray.length);
 		console.log("init is happening yo");
+		$(".notes").on("click", ".removeNote", home.DeletePost);
 	},
 	AppendPost: function(){
 		
 		home.replaceTmpl($(".notes"), $("#noteInfo").html(), noteArray);
 		home.replaceCounter($(".counter"), noteArray.length);
-		console.log(" append success");
-	},
-	DeletePost: function(){
-		$(".removeNote").on("click", function(){
-		var thisIndex = $(this).closest("div").data("index");
-		console.log(
-		home.removeTodoData(noteArray, noteArray[thisIndex]));
-		// home.replaceTmpl($(".notes"), $("#noteInfo").html(), noteArray);
-		// $(this).closest("div").empty();
-		// home.replaceCounter($(".counter"), noteArray.length);
-		});	
+		console.log("append success");
 	},
 	NewPost: function(){
 		$("#newPostform").on("submit", function(e) {
