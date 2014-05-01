@@ -19,7 +19,7 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/
 body {
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: #555;
+    background-color: rgba(150, 100, 50, 1);
 }
 h1 {
     padding-left: 55px;
@@ -77,11 +77,16 @@ h1 {
 }
 .container{
     min-height: 350px;
-    background-image: url(../images/reddot.jpg);
-    background-repeat: repeat-y;
+    background-image: url(../images/reddot.jpg), url(http://www.freebiesgallery.com/wp-content/uploads/2013/09/paper-background-10.jpg);
+    background-repeat: repeat-y, repeat;
+    background-width: 1px, 100%;
     background-color: #fff;
     background-position: 70px;
+    -webkit-transition: .5s all ease;
 }
+.container:hover{
+        box-shadow: 0 0 5em black;
+    }
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .container {
@@ -106,11 +111,13 @@ h1 {
         border-bottom: 0;
     }
 }
-.notebox {
-    border-bottom: dashed 1px rgba(75,100,175,1);
+.notebox, .completebox {
+    border-bottom: solid 1px rgba(150,150,200,1);
     padding-bottom: -15px;
     padding-left: 60px;
-
+}
+.completebox {
+    text-decoration: line-through;
 }
 .notifications {
     display: inline-block;

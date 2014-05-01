@@ -47,20 +47,16 @@ Page.prototype = {
         }
       }
     },
+    showHide: function($target1, $target2){
+    	$target1.show();
+    	$target2.hide();
+    },
 
     DeletePost: function(){
 		var thisIndex = $(this).closest("div").data("index");
 		home.removeTodoData(noteArray, completedTasks, noteArray[thisIndex]);
 		home.replaceTmpl($(".notes"), $("#noteInfo").html(), noteArray);
 		home.replaceCounter($(".counter"), noteArray.length);	
-	},
-	pageToggle1: function(){
-		$(".complete").show();
-		$(".notes").hide();
-	},
-	pageToggle2: function(){
-		$(".notes").show();
-		$(".complete").hide();	
 	}
 };
 
@@ -72,6 +68,7 @@ var homePage = {
 		$(".notes").on("click", ".removeNote", home.DeletePost);
 	},
 	AppendPost: function(){
+		
 		home.replaceTmpl($(".notes"), $("#noteInfo").html(), noteArray);
 		home.replaceCounter($(".counter"), noteArray.length);
 		console.log("append success");
@@ -87,7 +84,7 @@ var homePage = {
 		console.log(noteArray);
 		console.log(noteArray.length);
 		});
-	}
+}
 
 }
 
@@ -98,9 +95,10 @@ var completePage = {
 		$(".notes").on("click", ".removeNote", function(){
 			complete.replaceTmpl($(".complete"), $("#completeInfo").html(), completedTasks);
 		});
-		$(".linkToCompletedTasks").on("click", home.pageToggle1);
-		$(".linkToNotes").on("click", home.pageToggle2);
+		complete.togglePages;
 	}
-}
-
+},
+	togglePages: function(){
+	$(".linkToCompletedTasks").on("click", home.showHide($(".complete"), $(".notes")));
+	}
 

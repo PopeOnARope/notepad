@@ -15,7 +15,15 @@
                 </small><a class="glyphicon glyphicon-remove removeNote" data-index="<%= index %>"></a>
                 <h4 class = "noteClass"> <%=element.note %> </h4>
                 </div>
-            <% }); %>
+            <% }); %>     
+        </script>
+        <script type="template/html" id="completeInfo">
+            <%_.each(completedTasks, function(element, index, list){ %>
+                <div class="completebox">
+                </small>
+                <h4 class = "completeClass"> <%=element.note %> </h4>
+                </div>
+            <% }); %>     
         </script>
     </head>
     <body>
@@ -24,9 +32,10 @@
     <div class="container">
         <h1>To-do List</h1>
         <div class="notes">
-            
-
         </div>
+        
+        <div class="complete">
+        </div> 
 
         <div class="form-group formstyle">
             <form id="newPostform">
@@ -38,8 +47,10 @@
 
         <div class= "notifications">
             <p>You have <a class="counter"> </a> items remaining on your list.</p>
-            
-        </div>         
+            <p><a class = "linkToCompletedTasks">Completed tasks</a></p>
+            <p><a class = "linkToNotes">To-do List</a></p>
+        </div> 
+    
 
 
 
